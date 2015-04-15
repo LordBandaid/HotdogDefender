@@ -43,9 +43,31 @@ namespace Game1
             Health = 100;
         }
 
-        public void Update(KeyboardState? kb)
+        public override void Update(KeyboardState kb)
         {
+            //No need to check individual keys if there are no keys down in the first place
+            if (kb.GetPressedKeys() != null)
+            {
+                if (kb.IsKeyDown(Keys.Up))
+                {
 
+                }
+
+                if (kb.IsKeyDown(Keys.Right))
+                {
+
+                }
+
+                if (kb.IsKeyDown(Keys.Down))
+                {
+
+                }
+
+                if (kb.IsKeyDown(Keys.Left))
+                {
+
+                }
+            }
         }
 
         public void Attack()
