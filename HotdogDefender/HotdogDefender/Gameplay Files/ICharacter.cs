@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Game1
+namespace HotdogDefender
 {
     enum Direction
     {
@@ -20,7 +20,7 @@ namespace Game1
         UpLeft = 7
     }
 
-    interface ICharacter
+    interface ICharacter : GameObject
     {
         int Health { get; set; }
         Vector2 Position { get; set; }

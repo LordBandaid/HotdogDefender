@@ -6,10 +6,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Game1
+namespace HotdogDefender
 {
     class PlayerController : ICharacter
     {
+        LevelController lvlControl;
+
         private int health;
         public int Health
         {
@@ -38,8 +40,9 @@ namespace Game1
             set { sprite = value; }
         }
 
-        public PlayerController()
+        public PlayerController(LevelController l)
         {
+            lvlControl = l;
             Health = 100;
         }
 
@@ -66,6 +69,12 @@ namespace Game1
                 if (kb.IsKeyDown(Keys.Left))
                 {
 
+                }
+
+                //If PlaceDrone keypress, check for validity, create a drone at player location and add it to lvlControl's room objects list
+                if (kb.IsKeyDown(Keys.Z))
+                {
+                    lvlControl.actorList.Add(PlaceDrone(DroneType.Barricade));
                 }
             }
         }
